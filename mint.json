@@ -41,7 +41,7 @@
       "name": "Community",
       "icon": "x",
       "url": "https://x.com/1RouterAI"
-    },
+    }
   ],
   "navigation": [
     {
@@ -80,6 +80,6 @@
   ],
   "footerSocials": {
     "x": "https://x.com/1routerAI",
-    "github": "https://github.com/1router",
+    "github": "https://github.com/1router"
   }
 }
