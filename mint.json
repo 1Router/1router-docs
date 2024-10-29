@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "1Router",
+  "name": "1Router.com",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -22,7 +22,7 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "github",
+    "type": "github",
     "url": "https://github.com/1router/1router-docs"
   },
   "tabs": [
