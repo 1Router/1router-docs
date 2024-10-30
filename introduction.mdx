@@ -1,71 +1,201 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: 1Router.com
+description: '1 Interface for all AI models.'
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## Principles
 
-## Setting up
-
-The first step to world-class documentation is setting up your editing environments.
+In the future, there will be many models - from language to image - and providers. **How will you pick the best one?**
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
+    title="Price and Performance"
+    icon="dollar-sign"
+    href="#"
   >
-    Get your docs set up locally for easy development
+    1Router finds the best prices and speeds from various providers, letting you decide what matters most.
   </Card>
   <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
-
-## Make it yours
-
-Update your docs to your brand and add valuable content for the best user conversion.
-
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
+    title="Seamless API"
     icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="#"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Switch between models easily without changing your code, and let users choose and pay for their own options.
   </Card>
   <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
+    title="Usage Over Evals"
+    icon="chart-line"
+    href="#"
   >
-    Build interactive features and designs to guide your users
+    The most popular models will be used more often. Compare them based on real usage instead of flawed evaluations.
   </Card>
   <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
+    title="Chatroom Feature"
+    icon="comments"
+    href="#"
   >
-    Check out our showcase of our favorite documentation
+    Interact with multiple models at once in the Chatroom for a more dynamic experience.
   </Card>
 </CardGroup>
+
+
+## Quick Start
+
+
+
+To get started, you can use 1Router via API like this:
+
+<CodeGroup>
+
+```typescript typescript
+fetch("https://1router.ai/api/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${1ROUTER_API_KEY}`,
+    "HTTP-Referer": `${YOUR_SITE_URL}`, // Optional, for including your app on 1router.ai rankings.
+    "X-Title": `${YOUR_SITE_NAME}`, // Optional. Shows in rankings on 1router.ai.
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    "model": "meta-llama/llama-3.1-405b-instruct",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the meaning of life?"
+      }
+    ]
+  })
+});
+
+```
+
+```python python
+import requests
+import json
+
+response = requests.post(
+    url="https://1router.ai/api/v1/chat/completions",
+    headers={
+        "Authorization": f"Bearer {1ROUTER_API_KEY}",
+        "HTTP-Referer": f"{YOUR_SITE_URL}",  # Optional, for including your app on 1router.ai rankings.
+        "X-Title": f"{YOUR_APP_NAME}",  # Optional. Shows in rankings on 1router.ai.
+        "Content-Type": "application/json"
+    },
+    data=json.dumps({
+        "model": "meta-llama/llama-3.1-405b-instruct",
+        "messages": [
+            {
+                "role": "user",
+                "content": "What is the meaning of life?"
+            }
+        ]
+    })
+)
+
+```
+
+```ruby ruby
+require "open_router"
+
+OpenRouter.configure do |config|
+  config.access_token = ENV["ACCESS_TOKEN"]
+  config.site_name = "YOUR_APP_NAME"
+  config.site_url = "YOUR_SITE_URL"
+end
+
+OpenRouter::Client.new.complete(
+  model: "meta-llama/llama-3.1-405b-instruct",
+  messages: [
+    {
+      "role": "user",
+      "content": "What is the meaning of life?"
+    }
+  ]
+).then do |response|
+  puts response.dig("choices", 0, "message", "content")
+end
+
+
+```
+
+```bash shell
+curl https://1router.ai/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $1ROUTER_API_KEY" \
+  -d '{
+  "model": "meta-llama/llama-3.1-405b-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the meaning of life?"
+    }
+  ]
+}'
+
+
+```
+</CodeGroup>
+
+You can also use 1Router with OpenAI's client API:
+
+<CodeGroup>
+
+```typescript typescript
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  baseURL: "https://1router.ai/api/v1",
+  apiKey: $1ROUTER_API_KEY,
+  defaultHeaders: {
+    "HTTP-Referer": $YOUR_SITE_URL, // Optional, for including your app on 1router.ai rankings.
+    "X-Title": $YOUR_SITE_NAME, // Optional. Shows in rankings on 1router.ai.
+  }
+});
+
+async function main() {
+  const completion = await openai.chat.completions.create({
+    model: "meta-llama/llama-3.1-405b-instruct",
+    messages: [
+      {
+        "role": "user",
+        "content": "What is the meaning of life?"
+      }
+    ]
+  });
+
+  console.log(completion.choices[0].message);
+}
+
+main();
+
+
+```
+
+```python python
+from openai import OpenAI
+from os import getenv
+
+# gets API Key from environment variable OPENROUTER_API_KEY
+client = OpenAI(
+    base_url="https://1router.ai/api/v1",
+    api_key=getenv("1ROUTER_API_KEY"),
+)
+
+completion = client.chat.completions.create(
+    extra_headers={
+        "HTTP-Referer": YOUR_SITE_URL,  # Optional, for including your app on 1router.ai rankings.
+        "X-Title": YOUR_APP_NAME,  # Optional. Shows in rankings on 1router.ai.
+    },
+    model="meta-llama/llama-3.1-405b-instruct",
+    messages=[
+        {
+            "role": "user",
+            "content": "What is the meaning of life?"
+        }
+    ]
+)
+
+print(completion.choices[0].message.content)
+
+```
+</CodeGroup>
