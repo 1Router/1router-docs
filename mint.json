@@ -5,6 +5,9 @@
     "dark": "/logo/1router.logo.jpg",
     "light": "/logo/1router.logo.jpg"
   },
+  "metadata": {
+    "og:image": "https://mintlify.s3-us-west-1.amazonaws.com/1routercom/logo/1router.logo.jpg"
+  },
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#0D9373",
