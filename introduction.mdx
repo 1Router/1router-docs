@@ -55,12 +55,12 @@ To get started, you can use 1Router via API like this:
 <CodeGroup>
 
 ```typescript typescript
-fetch("https://1router.ai/api/v1/chat/completions", {
+fetch("https://1router.com/api/v1/chat/completions", {
   method: "POST",
   headers: {
     "Authorization": `Bearer ${1ROUTER_API_KEY}`,
-    "HTTP-Referer": `${YOUR_SITE_URL}`, // Optional, for including your app on 1router.ai rankings.
-    "X-Title": `${YOUR_SITE_NAME}`, // Optional. Shows in rankings on 1router.ai.
+    "HTTP-Referer": `${YOUR_SITE_URL}`, // Optional, for including your app on 1router.com rankings.
+    "X-Title": `${YOUR_SITE_NAME}`, // Optional. Shows in rankings on 1router.com.
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
@@ -81,11 +81,11 @@ import requests
 import json
 
 response = requests.post(
-    url="https://1router.ai/api/v1/chat/completions",
+    url="https://1router.com/api/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {1ROUTER_API_KEY}",
-        "HTTP-Referer": f"{YOUR_SITE_URL}",  # Optional, for including your app on 1router.ai rankings.
-        "X-Title": f"{YOUR_APP_NAME}",  # Optional. Shows in rankings on 1router.ai.
+        "HTTP-Referer": f"{YOUR_SITE_URL}",  # Optional, for including your app on 1router.com rankings.
+        "X-Title": f"{YOUR_APP_NAME}",  # Optional. Shows in rankings on 1router.com.
         "Content-Type": "application/json"
     },
     data=json.dumps({
@@ -126,7 +126,7 @@ end
 ```
 
 ```bash shell
-curl https://1router.ai/api/v1/chat/completions \
+curl https://1router.com/api/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $1ROUTER_API_KEY" \
   -d '{
@@ -151,11 +151,11 @@ You can also use 1Router with OpenAI's client API:
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  baseURL: "https://1router.ai/api/v1",
+  baseURL: "https://1router.com/api/v1",
   apiKey: $1ROUTER_API_KEY,
   defaultHeaders: {
-    "HTTP-Referer": $YOUR_SITE_URL, // Optional, for including your app on 1router.ai rankings.
-    "X-Title": $YOUR_SITE_NAME, // Optional. Shows in rankings on 1router.ai.
+    "HTTP-Referer": $YOUR_SITE_URL, // Optional, for including your app on 1router.com rankings.
+    "X-Title": $YOUR_SITE_NAME, // Optional. Shows in rankings on 1router.com.
   }
 });
 
@@ -184,14 +184,14 @@ from os import getenv
 
 # gets API Key from environment variable OPENROUTER_API_KEY
 client = OpenAI(
-    base_url="https://1router.ai/api/v1",
+    base_url="https://1router.com/api/v1",
     api_key=getenv("1ROUTER_API_KEY"),
 )
 
 completion = client.chat.completions.create(
     extra_headers={
-        "HTTP-Referer": YOUR_SITE_URL,  # Optional, for including your app on 1router.ai rankings.
-        "X-Title": YOUR_APP_NAME,  # Optional. Shows in rankings on 1router.ai.
+        "HTTP-Referer": YOUR_SITE_URL,  # Optional, for including your app on 1router.com rankings.
+        "X-Title": YOUR_APP_NAME,  # Optional. Shows in rankings on 1router.com.
     },
     model="meta-llama/llama-3.1-405b-instruct",
     messages=[
