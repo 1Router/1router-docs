@@ -55,6 +55,13 @@
       ]
     },
     {
+      "group": "Load Balancing",
+      "pages": [
+        "load-balance/model-routing",
+        "load-balance/provider-routing"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
