@@ -1,49 +1,16 @@
 ---
-title: 'Provider Routing'
+title: Multi-Model Routing (In Development) 👀
 description: ''
 ---
 
-# Provider Routing
+1Router.com is currently developing multi-model routing capabilities. In the meantime, two options are available:
 
-1Router.com routes requests to the best available providers for your model, given your preferences. By default, requests are load balanced across the top providers to maximize uptime, but you can customize how this works using the `provider` object in the request body.
-
-## Load Balancing
-
-For each model in your request, 1Router.com's default behavior is to load balance requests across providers with the following strategy:
-
-- **Prioritize providers** that have not seen significant outages in the last 10 seconds.
-- For the stable providers, **select the lowest-cost candidates** and choose one weighted by price.
-- Use the remaining providers as **fallbacks**.
-
-### Example Scenario
-Let's say:
-
-- **Provider A** charges $1/million tokens.
-- **Provider B** charges $2/million tokens.
-- **Provider C** charges $3/million tokens.
-- **Provider B** recently experienced outages.
-
-In this scenario:
-
-- Your request is 3x more likely to be routed first to **Provider A** than to **Provider C**.
-- If **Provider A** fails, **Provider C** will be tried next.
-- If both providers fail, **Provider B** will be tried last.
-
-## Custom Routing
-
-You can customize which providers 1Router.com will prioritize for your request using the `order` field. The router will follow the priority list for the model you're using. If you don't specify this field, the router will load balance across the top providers to maximize uptime.
-
-1Router.com will attempt the providers in your specified order and proceed to other providers if none are operational. To restrict routing strictly to your preferred providers, you can disable fallbacks.
-
-### Example Custom Routing
-
-The following example skips OpenAI (which doesn't host Mixtral), tries Together, and then falls back to the default provider list on 1Router.com:
+1. **Auto Router**: A special model ID that selects between high-quality models based on heuristics applied to your prompt.
+2. **Models Array**: This option allows you to automatically try other models if the primary model's providers are down, rate-limited, or unable to reply due to mandatory content moderation:
 
 ```json
 {
-  "model": "your-model",
-  "provider": {
-    "order": ["Together", "OtherProvider"]
-  },
-  "disableFallbacks": false
+  "models": ["anthropic/claude-2.1", "gryphe/mythomax-l2-13b"],
+  "route": "fallback",
+  // Other parameters
 }
