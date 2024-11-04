@@ -52,6 +52,11 @@
       "group": "Get Started",
       "pages": [
         "quick-start"
+      ],
+      "group": "Load Balancing",
+      "pages": [
+        "load-balance/model-routing",
+        "load-balance/provider-routing"
       ]
     },
     {
