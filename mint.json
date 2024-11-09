@@ -62,6 +62,12 @@
       ]
     },
     {
+      "group": "Architecture",
+      "pages": [
+        "architecture/life-of-request"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
