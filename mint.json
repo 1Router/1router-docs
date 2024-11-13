@@ -21,8 +21,8 @@
   "theme": "venus",
   "topbarLinks": [
     {
-      "name": "Contact",
-      "url": "mailto:vlad@1router.com"
+      "name": "Browse Models",
+      "url": "https://ms-3e46c369cc8b-15146.nyc.meilisearch.io/?api_key=c95e02323a44ad10006b5d116263dcbe74c1c043&cloud_banner=false"
     }
   ],
   "topbarCtaButton": {
