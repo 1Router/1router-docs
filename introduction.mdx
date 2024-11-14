@@ -128,7 +128,7 @@ end
 ```bash shell
 curl https://1router.com/api/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $1ROUTER_API_KEY" \
+  -H "Authorization: Bearer $ROUTER_API_KEY" \
   -d '{
   "model": "meta-llama/llama-3.1-405b-instruct",
   "messages": [
@@ -152,7 +152,7 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: "https://1router.com/api/v1",
-  apiKey: $1ROUTER_API_KEY,
+  apiKey: $ROUTER_API_KEY,
   defaultHeaders: {
     "HTTP-Referer": $YOUR_SITE_URL, // Optional, for including your app on 1router.com rankings.
     "X-Title": $YOUR_SITE_NAME, // Optional. Shows in rankings on 1router.com.
